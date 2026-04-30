@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: workspace-app
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 3000
