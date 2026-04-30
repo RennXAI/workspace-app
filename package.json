@@ -1,0 +1,18 @@
+{
+  "name": "workspace-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal deployable Express app.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
