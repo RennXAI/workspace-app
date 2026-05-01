@@ -1,7 +1,12 @@
 const express = require('express');
+const cors = require('cors');
+const Anthropic = require('@anthropic-ai/sdk');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (_req, res) => {
   res.type('html').send(`<!doctype html>
@@ -24,6 +29,32 @@ app.get('/', (_req, res) => {
 
 app.get('/healthz', (_req, res) => {
   res.json({ status: 'ok' });
+});
+
+app.post('/api/ai-assist', async (req, res) => {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    return res.status(500).json({ error: 'System Error: Unable to reach AI API. Check API keys.' });
+  }
+
+  const { message, context } = req.body;
+  if (!message) {
+    return res.status(400).json({ error: 'message is required' });
+  }
+
+  try {
+    const client = new Anthropic({ apiKey });
+    const response = await client.messages.create({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 1024,
+      system: context || 'You are an AI business partner for RennXAI Workspace. Help the user manage their projects, create tasks, and adjust system knowledge.',
+      messages: [{ role: 'user', content: message }],
+    });
+    res.json({ response: response.content[0].text });
+  } catch (err) {
+    console.error('Anthropic API error:', err.message);
+    res.status(500).json({ error: 'System Error: Unable to reach AI API. Check API keys.' });
+  }
 });
 
 if (require.main === module) {
