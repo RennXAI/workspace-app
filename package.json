@@ -2,11 +2,12 @@
   "name": "workspace-app",
   "version": "0.1.0",
   "private": true,
-  "description": "Minimal deployable Express app.",
+  "description": "Production-ready Express app for RennXAI Workspace AI Assist.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js",
+    "dev": "node --watch server.js",
+    "build": "node --check server.js && node --check public/app.js && node --check test/server.test.js",
     "test": "node --test"
   },
   "engines": {
@@ -15,6 +16,8 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.92.0",
     "cors": "^2.8.6",
-    "express": "^4.19.2"
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "helmet": "^8.1.0"
   }
 }

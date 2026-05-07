@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RennXAI Workspace</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <div class="panel intro-panel" aria-labelledby="app-title">
+          <p class="eyebrow">RennXAI Workspace</p>
+          <h1 id="app-title">AI Assist</h1>
+          <p class="intro">
+            Ask for project help, task structure, system knowledge edits, or a concise next step.
+          </p>
+
+          <dl class="status-list" aria-live="polite">
+            <div>
+              <dt>Server</dt>
+              <dd id="server-status">Checking...</dd>
+            </div>
+            <div>
+              <dt>Model</dt>
+              <dd id="model-status">Checking...</dd>
+            </div>
+            <div>
+              <dt>API key</dt>
+              <dd id="key-status">Checking...</dd>
+            </div>
+          </dl>
+        </div>
+
+        <section class="panel assistant-panel" aria-labelledby="assistant-title">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Workspace Copilot</p>
+              <h2 id="assistant-title">Send a message</h2>
+            </div>
+            <a href="/healthz" class="health-link">Health</a>
+          </div>
+
+          <form id="assist-form" class="assist-form">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="7"
+              required
+              placeholder="Summarize my priorities for this workspace..."
+            ></textarea>
+
+            <label for="context">Optional system context</label>
+            <textarea
+              id="context"
+              name="context"
+              rows="4"
+              placeholder="Use this only when you want to override the default assistant behavior."
+            ></textarea>
+
+            <button id="submit-button" type="submit">Ask AI Assist</button>
+          </form>
+
+          <section class="response-card" aria-labelledby="response-title">
+            <h3 id="response-title">Response</h3>
+            <div id="response-output" class="response-output" aria-live="polite">
+              Your AI Assist response will appear here.
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
