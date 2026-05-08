@@ -4,11 +4,11 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const Anthropic = require('@anthropic-ai/sdk');
 
 const DEFAULT_MODEL = 'claude-sonnet-4-6';
 const DEFAULT_SYSTEM_PROMPT =
   'You are an AI business partner for RennXAI Workspace. Help the user manage their projects, create tasks, and adjust system knowledge.';
+let AnthropicClient;
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -49,6 +49,14 @@ function extractTextResponse(content) {
     .map((part) => part.text)
     .join('\n')
     .trim();
+}
+
+function getAnthropicClient() {
+  if (!AnthropicClient) {
+    AnthropicClient = require('@anthropic-ai/sdk');
+  }
+
+  return AnthropicClient;
 }
 
 app.use(
@@ -97,6 +105,7 @@ app.post('/api/ai-assist', async (req, res) => {
   const model = process.env.ANTHROPIC_MODEL || DEFAULT_MODEL;
 
   try {
+    const Anthropic = getAnthropicClient();
     const client = new Anthropic({ apiKey });
     const response = await client.messages.create({
       model,

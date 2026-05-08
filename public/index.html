@@ -7,70 +7,151 @@
     <link rel="stylesheet" href="/app.css" />
   </head>
   <body>
-    <main class="shell">
-      <section class="workspace">
-        <div class="panel intro-panel" aria-labelledby="app-title">
-          <p class="eyebrow">RennXAI Workspace</p>
-          <h1 id="app-title">AI Assist</h1>
-          <p class="intro">
-            Ask for project help, task structure, system knowledge edits, or a concise next step.
-          </p>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Workspace navigation">
+        <a class="brand" href="#overview" aria-label="RennXAI Workspace home">
+          <span>RennXAI</span>
+          <span>Workspace</span>
+        </a>
 
-          <dl class="status-list" aria-live="polite">
-            <div>
-              <dt>Server</dt>
-              <dd id="server-status">Checking...</dd>
-            </div>
-            <div>
-              <dt>Model</dt>
-              <dd id="model-status">Checking...</dd>
-            </div>
-            <div>
-              <dt>API key</dt>
-              <dd id="key-status">Checking...</dd>
-            </div>
-          </dl>
+        <nav class="nav-list">
+          <a class="nav-item active" href="#overview"><span class="nav-icon">☆</span>North Star</a>
+          <a class="nav-item" href="#business"><span class="nav-icon">▥</span>Business HQ</a>
+          <a class="nav-item" href="#launch"><span class="nav-icon">↗</span>Launch Tracker</a>
+          <a class="nav-item" href="#projects"><span class="nav-icon">▦</span>Projects</a>
+          <a class="nav-item" href="#ai-assist"><span class="nav-icon">⌘</span>AI Assist</a>
+          <a class="nav-item" href="#assets"><span class="nav-icon">▥</span>Asset Vault</a>
+          <a class="nav-item" href="#dashboard"><span class="nav-icon">▦</span>Dashboard</a>
+          <a class="nav-item" href="#channels"><span class="nav-icon">□</span>Channels</a>
+          <a class="nav-item inbox" href="#inbox"><span class="nav-icon">▱</span>Inbox <span class="badge">2</span></a>
+          <a class="nav-item" href="#settings"><span class="nav-icon">⚙</span>Settings</a>
+        </nav>
+
+        <div class="profile-card">
+          <span class="avatar">R</span>
+          <div>
+            <strong>Renn</strong>
+            <span>Founder</span>
+          </div>
         </div>
+      </aside>
 
-        <section class="panel assistant-panel" aria-labelledby="assistant-title">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Workspace Copilot</p>
-              <h2 id="assistant-title">Send a message</h2>
+      <main class="workspace-main">
+        <section id="overview" class="hero">
+          <h1>Good morning, Renn.</h1>
+          <p>Here's where things stand for <span id="today-label">Friday, May 8th.</span></p>
+        </section>
+
+        <section class="command-grid" aria-label="Workspace status">
+          <article class="lane priority-lane">
+            <header class="lane-header">
+              <span class="lane-icon check-icon">✓</span>
+              <h2>Top 3 Today</h2>
+            </header>
+
+            <div class="task-card">
+              <span class="pill blue">GHL SAAS LAUNCH</span>
+              <h3>Setup Stripe integration</h3>
+              <p>Due May 8</p>
+              <button type="button" class="ghost-action" data-fill-message="What are the next steps to finish the Stripe integration?">Open Task</button>
             </div>
-            <a href="/healthz" class="health-link">Health</a>
+
+            <div class="task-card">
+              <span class="pill muted">RENNEWME CONTENT ENGINE</span>
+              <h3>Draft next 5 Twitter threads</h3>
+              <p>Due May 8</p>
+              <button type="button" class="ghost-action" data-fill-message="Create a concise outline for the next 5 RennewMe Twitter threads.">Open Task</button>
+            </div>
+
+            <div class="task-card compact">
+              <span class="pill blue">WORKSPACE OS</span>
+              <h3>Clean task routing labels</h3>
+              <p>Due May 8</p>
+            </div>
+          </article>
+
+          <article class="lane waiting-lane">
+            <header class="lane-header">
+              <span class="lane-icon info-icon">!</span>
+              <h2>Waiting on You</h2>
+            </header>
+
+            <div class="task-card action-card">
+              <span class="pill bright">RX-NOTE BUILD</span>
+              <h3>Client onboarding guide</h3>
+              <button type="button" class="primary-action" data-fill-message="Review the client onboarding guide and list what still needs my decision.">Review Now</button>
+            </div>
+          </article>
+
+          <article class="lane blocked-lane">
+            <header class="lane-header">
+              <span class="lane-icon alert-icon">!</span>
+              <h2>Currently Blocked</h2>
+            </header>
+
+            <div class="task-card blocked-card">
+              <span class="pill warm">GHL SAAS LAUNCH</span>
+              <h3>Setup Stripe integration</h3>
+              <p>Blocked by missing bank verification details.</p>
+            </div>
+          </article>
+        </section>
+
+        <section id="ai-assist" class="assistant-section" aria-labelledby="assistant-title">
+          <div class="assistant-copy">
+            <p class="section-kicker">AI Assist</p>
+            <h2 id="assistant-title">Turn the workspace into next actions.</h2>
+            <p>
+              Ask for project help, task structure, system knowledge edits, or a concise next step.
+            </p>
+            <dl class="status-list" aria-live="polite">
+              <div>
+                <dt>Server</dt>
+                <dd id="server-status">Checking...</dd>
+              </div>
+              <div>
+                <dt>Model</dt>
+                <dd id="model-status">Checking...</dd>
+              </div>
+              <div>
+                <dt>API key</dt>
+                <dd id="key-status">Checking...</dd>
+              </div>
+            </dl>
           </div>
 
-          <form id="assist-form" class="assist-form">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="7"
-              required
-              placeholder="Summarize my priorities for this workspace..."
-            ></textarea>
+          <div class="assistant-panel">
+            <form id="assist-form" class="assist-form">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder="Summarize today's workspace and recommend the next move..."
+              ></textarea>
 
-            <label for="context">Optional system context</label>
-            <textarea
-              id="context"
-              name="context"
-              rows="4"
-              placeholder="Use this only when you want to override the default assistant behavior."
-            ></textarea>
+              <label for="context">Optional system context</label>
+              <textarea
+                id="context"
+                name="context"
+                rows="3"
+                placeholder="Use this only when you want to override the default assistant behavior."
+              ></textarea>
 
-            <button id="submit-button" type="submit">Ask AI Assist</button>
-          </form>
+              <button id="submit-button" type="submit" class="primary-action">Ask AI Assist</button>
+            </form>
 
-          <section class="response-card" aria-labelledby="response-title">
-            <h3 id="response-title">Response</h3>
-            <div id="response-output" class="response-output" aria-live="polite">
-              Your AI Assist response will appear here.
-            </div>
-          </section>
+            <section class="response-card" aria-labelledby="response-title">
+              <h3 id="response-title">Response</h3>
+              <div id="response-output" class="response-output" aria-live="polite">
+                Your AI Assist response will appear here.
+              </div>
+            </section>
+          </div>
         </section>
-      </section>
-    </main>
+      </main>
+    </div>
 
     <script src="/app.js" defer></script>
   </body>
