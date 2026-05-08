@@ -53,6 +53,11 @@ function extractTextResponse(content) {
 
 app.use(
   helmet({
+    contentSecurityPolicy: {
+      directives: {
+        'upgrade-insecure-requests': null,
+      },
+    },
     crossOriginResourcePolicy: { policy: 'same-origin' },
   })
 );
