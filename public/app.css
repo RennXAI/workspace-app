@@ -179,7 +179,7 @@ button {
 .hero h1 {
   margin: 0;
   color: var(--blue);
-  font-size: clamp(3.8rem, 5.3vw, 6.4rem);
+  font-size: clamp(2.9rem, 4.25vw, 4.9rem);
   line-height: 0.98;
   letter-spacing: 0;
 }
@@ -187,7 +187,7 @@ button {
 .hero p {
   margin: 1.35rem 0 0;
   color: var(--muted);
-  font-size: clamp(1.7rem, 2vw, 2.25rem);
+  font-size: clamp(1.28rem, 1.65vw, 1.8rem);
   font-weight: 650;
 }
 
@@ -217,7 +217,7 @@ button {
 .lane-header h2 {
   margin: 0;
   color: var(--blue-dark);
-  font-size: clamp(1.75rem, 2.28vw, 3rem);
+  font-size: clamp(1.5rem, 1.88vw, 2.35rem);
   line-height: 1.22;
   letter-spacing: 0;
 }
