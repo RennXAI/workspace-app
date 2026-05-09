@@ -62,7 +62,7 @@ button {
   gap: 0.34rem;
   color: var(--blue-dark);
   text-decoration: none;
-  font-size: 2.12rem;
+  font-size: 1.68rem;
   font-weight: 900;
   line-height: 1.12;
   letter-spacing: 0;
@@ -84,7 +84,7 @@ button {
   border-radius: 1.1rem;
   color: var(--blue-dark);
   text-decoration: none;
-  font-size: 1.46rem;
+  font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: 0;
 }
@@ -157,13 +157,13 @@ button {
 }
 
 .profile-card strong {
-  font-size: 1.55rem;
+  font-size: 1.16rem;
 }
 
 .profile-card div > span {
   margin-top: 0.1rem;
   color: var(--muted);
-  font-size: 1.18rem;
+  font-size: 0.94rem;
   font-weight: 600;
 }
 
@@ -179,7 +179,7 @@ button {
 .hero h1 {
   margin: 0;
   color: var(--blue);
-  font-size: clamp(2.9rem, 4.25vw, 4.9rem);
+  font-size: clamp(2.35rem, 3.35vw, 4rem);
   line-height: 0.98;
   letter-spacing: 0;
 }
@@ -187,7 +187,7 @@ button {
 .hero p {
   margin: 1.35rem 0 0;
   color: var(--muted);
-  font-size: clamp(1.28rem, 1.65vw, 1.8rem);
+  font-size: clamp(1.05rem, 1.25vw, 1.4rem);
   font-weight: 650;
 }
 
@@ -217,7 +217,7 @@ button {
 .lane-header h2 {
   margin: 0;
   color: var(--blue-dark);
-  font-size: clamp(1.5rem, 1.88vw, 2.35rem);
+  font-size: clamp(1.25rem, 1.48vw, 1.9rem);
   line-height: 1.22;
   letter-spacing: 0;
 }
@@ -258,7 +258,7 @@ button {
 .task-card h3 {
   margin: 0;
   color: var(--ink);
-  font-size: clamp(1.28rem, 1.52vw, 2rem);
+  font-size: clamp(1.05rem, 1.18vw, 1.45rem);
   line-height: 1.23;
   letter-spacing: 0;
 }
@@ -266,7 +266,7 @@ button {
 .task-card p {
   margin: 0;
   color: var(--muted);
-  font-size: clamp(1rem, 1.05vw, 1.24rem);
+  font-size: clamp(0.88rem, 0.9vw, 1rem);
   font-weight: 700;
   line-height: 1.28;
 }
@@ -280,7 +280,7 @@ button {
   border-radius: 999px;
   background: var(--blue-soft);
   color: var(--blue-dark);
-  font-size: clamp(0.76rem, 0.82vw, 0.94rem);
+  font-size: clamp(0.66rem, 0.68vw, 0.78rem);
   font-weight: 900;
   letter-spacing: 0;
 }
@@ -306,7 +306,7 @@ button {
   border-radius: 0.78rem;
   padding: 0 1.45rem;
   color: var(--blue-dark);
-  font-size: clamp(1rem, 1vw, 1.18rem);
+  font-size: clamp(0.86rem, 0.86vw, 1rem);
   font-weight: 900;
   cursor: pointer;
 }
@@ -364,13 +364,13 @@ button {
 .assistant-copy h2 {
   margin: 0;
   color: var(--blue-dark);
-  font-size: 2.2rem;
+  font-size: 1.55rem;
   line-height: 1.12;
 }
 
 .assistant-copy p {
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 0.94rem;
   font-weight: 650;
   line-height: 1.55;
 }
@@ -415,7 +415,7 @@ button {
 
 label {
   color: #303846;
-  font-size: 0.94rem;
+  font-size: 0.82rem;
   font-weight: 900;
 }
 
